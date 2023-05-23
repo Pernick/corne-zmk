@@ -21,6 +21,19 @@
             quick-tap-ms = <0>;
             flavor = "balanced";
         };
+        lh_pht: lh_pht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_POSITIONAL_HOLD_TAP";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <100>;
+            quick-tap-ms = <200>;
+            flavor = "tap-unless-interrupted";
+            hold-trigger-key-positions = <19 20 21 22 23 18>;
+        };
     };
 
     keymap {
@@ -34,10 +47,10 @@
             //                    | GUI | SPC | LWR |   | ENT | RSE  | ALT |
 
             bindings = <
-   &kp TAB        &kp Q       &kp W           &kp E        &kp R      &kp T          &kp Y       &kp U       &kp I         &kp O     &kp P  &kp ESCAPE
-&kp ESCAPE  &hm A LSHFT  &hm S LGUI  &hm D LEFT_ALT  &hm F LCTRL      &kp G    &hm H RCTRL  &hm J RALT  &hm K RGUI  &hm L RSHIFT  &kp SEMI     &kp SQT
- &kp LSHFT        &kp Z       &kp X           &kp C        &kp V      &kp B          &kp N       &kp M   &kp COMMA       &kp DOT  &kp FSLH    &kp LALT
-                                           &kp LGUI        &mo 1  &kp SPACE        &kp RET    &kp BSPC       &to 2
+   &kp TAB            &kp Q           &kp W               &kp E            &kp R      &kp T          &kp Y       &kp U       &kp I         &kp O     &kp P  &kp ESCAPE
+&kp ESCAPE  &lh_pht A LSHFT  &lh_pht S LGUI  &lh_pht D LEFT_ALT  &lh_pht F LCTRL      &kp G    &hm H RCTRL  &hm J RALT  &hm K RGUI  &hm L RSHIFT  &kp SEMI     &kp SQT
+ &kp LSHFT            &kp Z           &kp X               &kp C            &kp V      &kp B          &kp N       &kp M   &kp COMMA       &kp DOT  &kp FSLH    &kp LALT
+                                                       &kp LGUI            &mo 1  &kp SPACE        &kp RET    &kp BSPC       &to 2
             >;
         };
 
